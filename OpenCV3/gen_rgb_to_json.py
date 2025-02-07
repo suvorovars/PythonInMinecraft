@@ -31,8 +31,6 @@ def take_screenshot():
     """
     Функция для снятия скриншота экрана.
     """
-    time.sleep(5)  # Даём время на открытие Minecraft
-    time.sleep(3)
     screenshot = pyautogui.screenshot()  # Делаем скриншот
     return screenshot
 
@@ -65,7 +63,7 @@ def get_average_color(image_np):
     return avg_color[::-1]  # Возвращаем цвет в формате RGB
 
 
-blocks = [(35, i) for i in range(1, 14)]  # id блоков
+blocks = [(35, i) for i in range(1, 14)] + [(159, i) for i in range(16)]  # id блоков
 
 pyautogui.hotkey('alt', 'tab')  # Переключаемся на вкладку с майнкрафтом
 pyautogui.press('f1')  # отключаем интерфейс
@@ -76,7 +74,7 @@ textures = {}
 
 for b in blocks:
     build_texture_wall(40, 30, b)  # Построение стены
-    time.sleep(2)
+    time.sleep(1)
     img = take_screenshot()  # Снятие скриншота
     cropped_img = get_cropped_image(img)  # Обрезка изображения
     avg_color = get_average_color(cropped_img)  # Вычисление среднего цвета
