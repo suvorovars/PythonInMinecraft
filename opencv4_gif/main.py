@@ -7,11 +7,6 @@ from mcpi.minecraft import Minecraft
 
 # Подключение к Minecraft
 mc = Minecraft.create()
-image = cv2.imread("img.png")
-resized_image = cv2.resize(image, (100, 50), interpolation=cv2.INTER_AREA)
-# cv2.imshow("low image", resized_image)
-# cv2.waitKey(0)
-# cv2.destroyAllWindows()
 
 import json
 import ast
